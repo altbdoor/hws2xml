@@ -1,0 +1,14 @@
+version: '{build}'
+branches:
+  only:
+  - master
+skip_tags: true
+clone_depth: 1
+build_script:
+- cmd: >-
+    echo Building Windows exe...
+
+    build.bat
+test: off
+artifacts:
+- path: hws2xml.exe
