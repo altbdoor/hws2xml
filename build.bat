@@ -1,7 +1,7 @@
 @echo off
 
-set csc_path=C:\Windows\Microsoft.NET\Framework\v4.0.30319\csc.exe
-set mcs_path=C:\Program Files (x86)\Mono\bin\mcs
+set csc_path="C:\Windows\Microsoft.NET\Framework\v4.0.30319\csc.exe"
+set mcs_path="C:\Program Files (x86)\Mono\bin\mcs"
 
 echo ----------------------------------------
 echo Building Windows exe...
