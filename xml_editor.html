@@ -1,0 +1,1740 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>HWS XML Editor · altbdoor.github.io</title>
+    
+    <style>
+        /*!
+         * Generated using the Bootstrap Customizer (http://getbootstrap.com/customize/?id=2e1a9e9430d0b45f3ba26d5cb6df9985)
+         * Config saved to config.json and https://gist.github.com/2e1a9e9430d0b45f3ba26d5cb6df9985
+         */
+        /*!
+         * Bootstrap v3.3.7 (http://getbootstrap.com)
+         * Copyright 2011-2016 Twitter, Inc.
+         * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+         */
+        /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,hgroup,main,menu,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block;vertical-align:baseline}audio:not([controls]){display:none;height:0}[hidden],template{display:none}a{background-color:transparent}a:active,a:hover{outline:0}abbr[title]{border-bottom:1px dotted}b,strong{font-weight:bold}dfn{font-style:italic}h1{font-size:2em;margin:.67em 0}mark{background:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sup{top:-0.5em}sub{bottom:-0.25em}img{border:0}svg:not(:root){overflow:hidden}figure{margin:1em 40px}hr{box-sizing:content-box;height:0}pre{overflow:auto}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}button,input,optgroup,select,textarea{color:inherit;font:inherit;margin:0}button{overflow:visible}button,select{text-transform:none}button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer}button[disabled],html input[disabled]{cursor:default}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}input{line-height:normal}input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0}input[type="number"]::-webkit-inner-spin-button,input[type="number"]::-webkit-outer-spin-button{height:auto}input[type="search"]{-webkit-appearance:textfield;box-sizing:content-box}input[type="search"]::-webkit-search-cancel-button,input[type="search"]::-webkit-search-decoration{-webkit-appearance:none}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}legend{border:0;padding:0}textarea{overflow:auto}optgroup{font-weight:bold}table{border-collapse:collapse;border-spacing:0}td,th{padding:0}
+        
+        * {
+          -webkit-box-sizing: border-box;
+          -moz-box-sizing: border-box;
+          box-sizing: border-box;
+        }
+        *:before,
+        *:after {
+          -webkit-box-sizing: border-box;
+          -moz-box-sizing: border-box;
+          box-sizing: border-box;
+        }
+        html {
+          font-size: 10px;
+          -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+        body {
+          font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+          font-size: 14px;
+          line-height: 1.42857143;
+          color: #333333;
+          background-color: #ffffff;
+        }
+        input,
+        button,
+        select,
+        textarea {
+          font-family: inherit;
+          font-size: inherit;
+          line-height: inherit;
+        }
+        a {
+          color: #337ab7;
+          text-decoration: none;
+        }
+        a:hover,
+        a:focus {
+          color: #23527c;
+          text-decoration: underline;
+        }
+        a:focus {
+          outline: 5px auto -webkit-focus-ring-color;
+          outline-offset: -2px;
+        }
+        figure {
+          margin: 0;
+        }
+        img {
+          vertical-align: middle;
+        }
+        .img-responsive {
+          display: block;
+          max-width: 100%;
+          height: auto;
+        }
+        .img-rounded {
+          border-radius: 6px;
+        }
+        .img-thumbnail {
+          padding: 4px;
+          line-height: 1.42857143;
+          background-color: #ffffff;
+          border: 1px solid #dddddd;
+          border-radius: 4px;
+          -webkit-transition: all 0.2s ease-in-out;
+          -o-transition: all 0.2s ease-in-out;
+          transition: all 0.2s ease-in-out;
+          display: inline-block;
+          max-width: 100%;
+          height: auto;
+        }
+        .img-circle {
+          border-radius: 50%;
+        }
+        hr {
+          margin-top: 20px;
+          margin-bottom: 20px;
+          border: 0;
+          border-top: 1px solid #eeeeee;
+        }
+        .sr-only {
+          position: absolute;
+          width: 1px;
+          height: 1px;
+          margin: -1px;
+          padding: 0;
+          overflow: hidden;
+          clip: rect(0, 0, 0, 0);
+          border: 0;
+        }
+        .sr-only-focusable:active,
+        .sr-only-focusable:focus {
+          position: static;
+          width: auto;
+          height: auto;
+          margin: 0;
+          overflow: visible;
+          clip: auto;
+        }
+        [role="button"] {
+          cursor: pointer;
+        }
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        .h1,
+        .h2,
+        .h3,
+        .h4,
+        .h5,
+        .h6 {
+          font-family: inherit;
+          font-weight: 500;
+          line-height: 1.1;
+          color: inherit;
+        }
+        h1 small,
+        h2 small,
+        h3 small,
+        h4 small,
+        h5 small,
+        h6 small,
+        .h1 small,
+        .h2 small,
+        .h3 small,
+        .h4 small,
+        .h5 small,
+        .h6 small,
+        h1 .small,
+        h2 .small,
+        h3 .small,
+        h4 .small,
+        h5 .small,
+        h6 .small,
+        .h1 .small,
+        .h2 .small,
+        .h3 .small,
+        .h4 .small,
+        .h5 .small,
+        .h6 .small {
+          font-weight: normal;
+          line-height: 1;
+          color: #777777;
+        }
+        h1,
+        .h1,
+        h2,
+        .h2,
+        h3,
+        .h3 {
+          margin-top: 20px;
+          margin-bottom: 10px;
+        }
+        h1 small,
+        .h1 small,
+        h2 small,
+        .h2 small,
+        h3 small,
+        .h3 small,
+        h1 .small,
+        .h1 .small,
+        h2 .small,
+        .h2 .small,
+        h3 .small,
+        .h3 .small {
+          font-size: 65%;
+        }
+        h4,
+        .h4,
+        h5,
+        .h5,
+        h6,
+        .h6 {
+          margin-top: 10px;
+          margin-bottom: 10px;
+        }
+        h4 small,
+        .h4 small,
+        h5 small,
+        .h5 small,
+        h6 small,
+        .h6 small,
+        h4 .small,
+        .h4 .small,
+        h5 .small,
+        .h5 .small,
+        h6 .small,
+        .h6 .small {
+          font-size: 75%;
+        }
+        h1,
+        .h1 {
+          font-size: 36px;
+        }
+        h2,
+        .h2 {
+          font-size: 30px;
+        }
+        h3,
+        .h3 {
+          font-size: 24px;
+        }
+        h4,
+        .h4 {
+          font-size: 18px;
+        }
+        h5,
+        .h5 {
+          font-size: 14px;
+        }
+        h6,
+        .h6 {
+          font-size: 12px;
+        }
+        p {
+          margin: 0 0 10px;
+        }
+        .lead {
+          margin-bottom: 20px;
+          font-size: 16px;
+          font-weight: 300;
+          line-height: 1.4;
+        }
+        @media (min-width: 768px) {
+          .lead {
+            font-size: 21px;
+          }
+        }
+        small,
+        .small {
+          font-size: 85%;
+        }
+        mark,
+        .mark {
+          background-color: #fcf8e3;
+          padding: .2em;
+        }
+        .text-left {
+          text-align: left;
+        }
+        .text-right {
+          text-align: right;
+        }
+        .text-center {
+          text-align: center;
+        }
+        .text-justify {
+          text-align: justify;
+        }
+        .text-nowrap {
+          white-space: nowrap;
+        }
+        .text-lowercase {
+          text-transform: lowercase;
+        }
+        .text-uppercase {
+          text-transform: uppercase;
+        }
+        .text-capitalize {
+          text-transform: capitalize;
+        }
+        .text-muted {
+          color: #777777;
+        }
+        .text-primary {
+          color: #337ab7;
+        }
+        a.text-primary:hover,
+        a.text-primary:focus {
+          color: #286090;
+        }
+        .text-success {
+          color: #3c763d;
+        }
+        a.text-success:hover,
+        a.text-success:focus {
+          color: #2b542c;
+        }
+        .text-info {
+          color: #31708f;
+        }
+        a.text-info:hover,
+        a.text-info:focus {
+          color: #245269;
+        }
+        .text-warning {
+          color: #8a6d3b;
+        }
+        a.text-warning:hover,
+        a.text-warning:focus {
+          color: #66512c;
+        }
+        .text-danger {
+          color: #a94442;
+        }
+        a.text-danger:hover,
+        a.text-danger:focus {
+          color: #843534;
+        }
+        .bg-primary {
+          color: #fff;
+          background-color: #337ab7;
+        }
+        a.bg-primary:hover,
+        a.bg-primary:focus {
+          background-color: #286090;
+        }
+        .bg-success {
+          background-color: #dff0d8;
+        }
+        a.bg-success:hover,
+        a.bg-success:focus {
+          background-color: #c1e2b3;
+        }
+        .bg-info {
+          background-color: #d9edf7;
+        }
+        a.bg-info:hover,
+        a.bg-info:focus {
+          background-color: #afd9ee;
+        }
+        .bg-warning {
+          background-color: #fcf8e3;
+        }
+        a.bg-warning:hover,
+        a.bg-warning:focus {
+          background-color: #f7ecb5;
+        }
+        .bg-danger {
+          background-color: #f2dede;
+        }
+        a.bg-danger:hover,
+        a.bg-danger:focus {
+          background-color: #e4b9b9;
+        }
+        .page-header {
+          padding-bottom: 9px;
+          margin: 40px 0 20px;
+          border-bottom: 1px solid #eeeeee;
+        }
+        ul,
+        ol {
+          margin-top: 0;
+          margin-bottom: 10px;
+        }
+        ul ul,
+        ol ul,
+        ul ol,
+        ol ol {
+          margin-bottom: 0;
+        }
+        .list-unstyled {
+          padding-left: 0;
+          list-style: none;
+        }
+        .list-inline {
+          padding-left: 0;
+          list-style: none;
+          margin-left: -5px;
+        }
+        .list-inline > li {
+          display: inline-block;
+          padding-left: 5px;
+          padding-right: 5px;
+        }
+        dl {
+          margin-top: 0;
+          margin-bottom: 20px;
+        }
+        dt,
+        dd {
+          line-height: 1.42857143;
+        }
+        dt {
+          font-weight: bold;
+        }
+        dd {
+          margin-left: 0;
+        }
+        @media (min-width: 768px) {
+          .dl-horizontal dt {
+            float: left;
+            width: 160px;
+            clear: left;
+            text-align: right;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+          }
+          .dl-horizontal dd {
+            margin-left: 180px;
+          }
+        }
+        abbr[title],
+        abbr[data-original-title] {
+          cursor: help;
+          border-bottom: 1px dotted #777777;
+        }
+        .initialism {
+          font-size: 90%;
+          text-transform: uppercase;
+        }
+        blockquote {
+          padding: 10px 20px;
+          margin: 0 0 20px;
+          font-size: 17.5px;
+          border-left: 5px solid #eeeeee;
+        }
+        blockquote p:last-child,
+        blockquote ul:last-child,
+        blockquote ol:last-child {
+          margin-bottom: 0;
+        }
+        blockquote footer,
+        blockquote small,
+        blockquote .small {
+          display: block;
+          font-size: 80%;
+          line-height: 1.42857143;
+          color: #777777;
+        }
+        blockquote footer:before,
+        blockquote small:before,
+        blockquote .small:before {
+          content: '\2014 \00A0';
+        }
+        .blockquote-reverse,
+        blockquote.pull-right {
+          padding-right: 15px;
+          padding-left: 0;
+          border-right: 5px solid #eeeeee;
+          border-left: 0;
+          text-align: right;
+        }
+        .blockquote-reverse footer:before,
+        blockquote.pull-right footer:before,
+        .blockquote-reverse small:before,
+        blockquote.pull-right small:before,
+        .blockquote-reverse .small:before,
+        blockquote.pull-right .small:before {
+          content: '';
+        }
+        .blockquote-reverse footer:after,
+        blockquote.pull-right footer:after,
+        .blockquote-reverse small:after,
+        blockquote.pull-right small:after,
+        .blockquote-reverse .small:after,
+        blockquote.pull-right .small:after {
+          content: '\00A0 \2014';
+        }
+        address {
+          margin-bottom: 20px;
+          font-style: normal;
+          line-height: 1.42857143;
+        }
+        fieldset {
+          padding: 0;
+          margin: 0;
+          border: 0;
+          min-width: 0;
+        }
+        legend {
+          display: block;
+          width: 100%;
+          padding: 0;
+          margin-bottom: 20px;
+          font-size: 21px;
+          line-height: inherit;
+          color: #333333;
+          border: 0;
+          border-bottom: 1px solid #e5e5e5;
+        }
+        label {
+          display: inline-block;
+          max-width: 100%;
+          margin-bottom: 5px;
+          font-weight: bold;
+        }
+        input[type="search"] {
+          -webkit-box-sizing: border-box;
+          -moz-box-sizing: border-box;
+          box-sizing: border-box;
+        }
+        input[type="radio"],
+        input[type="checkbox"] {
+          margin: 4px 0 0;
+          margin-top: 1px \9;
+          line-height: normal;
+        }
+        input[type="file"] {
+          display: block;
+        }
+        input[type="range"] {
+          display: block;
+          width: 100%;
+        }
+        select[multiple],
+        select[size] {
+          height: auto;
+        }
+        input[type="file"]:focus,
+        input[type="radio"]:focus,
+        input[type="checkbox"]:focus {
+          outline: 5px auto -webkit-focus-ring-color;
+          outline-offset: -2px;
+        }
+        output {
+          display: block;
+          padding-top: 7px;
+          font-size: 14px;
+          line-height: 1.42857143;
+          color: #555555;
+        }
+        .form-control {
+          display: block;
+          width: 100%;
+          height: 34px;
+          padding: 6px 12px;
+          font-size: 14px;
+          line-height: 1.42857143;
+          color: #555555;
+          background-color: #ffffff;
+          background-image: none;
+          border: 1px solid #cccccc;
+          border-radius: 4px;
+          -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+          -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+          -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+          transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+        }
+        .form-control:focus {
+          border-color: #66afe9;
+          outline: 0;
+          -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, 0.6);
+          box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, 0.6);
+        }
+        .form-control::-moz-placeholder {
+          color: #999999;
+          opacity: 1;
+        }
+        .form-control:-ms-input-placeholder {
+          color: #999999;
+        }
+        .form-control::-webkit-input-placeholder {
+          color: #999999;
+        }
+        .form-control::-ms-expand {
+          border: 0;
+          background-color: transparent;
+        }
+        .form-control[disabled],
+        .form-control[readonly],
+        fieldset[disabled] .form-control {
+          background-color: #eeeeee;
+          opacity: 1;
+        }
+        .form-control[disabled],
+        fieldset[disabled] .form-control {
+          cursor: not-allowed;
+        }
+        textarea.form-control {
+          height: auto;
+        }
+        input[type="search"] {
+          -webkit-appearance: none;
+        }
+        @media screen and (-webkit-min-device-pixel-ratio: 0) {
+          input[type="date"].form-control,
+          input[type="time"].form-control,
+          input[type="datetime-local"].form-control,
+          input[type="month"].form-control {
+            line-height: 34px;
+          }
+          input[type="date"].input-sm,
+          input[type="time"].input-sm,
+          input[type="datetime-local"].input-sm,
+          input[type="month"].input-sm,
+          .input-group-sm input[type="date"],
+          .input-group-sm input[type="time"],
+          .input-group-sm input[type="datetime-local"],
+          .input-group-sm input[type="month"] {
+            line-height: 30px;
+          }
+          input[type="date"].input-lg,
+          input[type="time"].input-lg,
+          input[type="datetime-local"].input-lg,
+          input[type="month"].input-lg,
+          .input-group-lg input[type="date"],
+          .input-group-lg input[type="time"],
+          .input-group-lg input[type="datetime-local"],
+          .input-group-lg input[type="month"] {
+            line-height: 46px;
+          }
+        }
+        .form-group {
+          margin-bottom: 15px;
+        }
+        .radio,
+        .checkbox {
+          position: relative;
+          display: block;
+          margin-top: 10px;
+          margin-bottom: 10px;
+        }
+        .radio label,
+        .checkbox label {
+          min-height: 20px;
+          padding-left: 20px;
+          margin-bottom: 0;
+          font-weight: normal;
+          cursor: pointer;
+        }
+        .radio input[type="radio"],
+        .radio-inline input[type="radio"],
+        .checkbox input[type="checkbox"],
+        .checkbox-inline input[type="checkbox"] {
+          position: absolute;
+          margin-left: -20px;
+          margin-top: 4px \9;
+        }
+        .radio + .radio,
+        .checkbox + .checkbox {
+          margin-top: -5px;
+        }
+        .radio-inline,
+        .checkbox-inline {
+          position: relative;
+          display: inline-block;
+          padding-left: 20px;
+          margin-bottom: 0;
+          vertical-align: middle;
+          font-weight: normal;
+          cursor: pointer;
+        }
+        .radio-inline + .radio-inline,
+        .checkbox-inline + .checkbox-inline {
+          margin-top: 0;
+          margin-left: 10px;
+        }
+        input[type="radio"][disabled],
+        input[type="checkbox"][disabled],
+        input[type="radio"].disabled,
+        input[type="checkbox"].disabled,
+        fieldset[disabled] input[type="radio"],
+        fieldset[disabled] input[type="checkbox"] {
+          cursor: not-allowed;
+        }
+        .radio-inline.disabled,
+        .checkbox-inline.disabled,
+        fieldset[disabled] .radio-inline,
+        fieldset[disabled] .checkbox-inline {
+          cursor: not-allowed;
+        }
+        .radio.disabled label,
+        .checkbox.disabled label,
+        fieldset[disabled] .radio label,
+        fieldset[disabled] .checkbox label {
+          cursor: not-allowed;
+        }
+        .form-control-static {
+          padding-top: 7px;
+          padding-bottom: 7px;
+          margin-bottom: 0;
+          min-height: 34px;
+        }
+        .form-control-static.input-lg,
+        .form-control-static.input-sm {
+          padding-left: 0;
+          padding-right: 0;
+        }
+        .input-sm {
+          height: 30px;
+          padding: 5px 10px;
+          font-size: 12px;
+          line-height: 1.5;
+          border-radius: 3px;
+        }
+        select.input-sm {
+          height: 30px;
+          line-height: 30px;
+        }
+        textarea.input-sm,
+        select[multiple].input-sm {
+          height: auto;
+        }
+        .form-group-sm .form-control {
+          height: 30px;
+          padding: 5px 10px;
+          font-size: 12px;
+          line-height: 1.5;
+          border-radius: 3px;
+        }
+        .form-group-sm select.form-control {
+          height: 30px;
+          line-height: 30px;
+        }
+        .form-group-sm textarea.form-control,
+        .form-group-sm select[multiple].form-control {
+          height: auto;
+        }
+        .form-group-sm .form-control-static {
+          height: 30px;
+          min-height: 32px;
+          padding: 6px 10px;
+          font-size: 12px;
+          line-height: 1.5;
+        }
+        .input-lg {
+          height: 46px;
+          padding: 10px 16px;
+          font-size: 18px;
+          line-height: 1.3333333;
+          border-radius: 6px;
+        }
+        select.input-lg {
+          height: 46px;
+          line-height: 46px;
+        }
+        textarea.input-lg,
+        select[multiple].input-lg {
+          height: auto;
+        }
+        .form-group-lg .form-control {
+          height: 46px;
+          padding: 10px 16px;
+          font-size: 18px;
+          line-height: 1.3333333;
+          border-radius: 6px;
+        }
+        .form-group-lg select.form-control {
+          height: 46px;
+          line-height: 46px;
+        }
+        .form-group-lg textarea.form-control,
+        .form-group-lg select[multiple].form-control {
+          height: auto;
+        }
+        .form-group-lg .form-control-static {
+          height: 46px;
+          min-height: 38px;
+          padding: 11px 16px;
+          font-size: 18px;
+          line-height: 1.3333333;
+        }
+        .help-block {
+          display: block;
+          margin-top: 5px;
+          margin-bottom: 10px;
+          color: #737373;
+        }
+        .form-horizontal .radio,
+        .form-horizontal .checkbox,
+        .form-horizontal .radio-inline,
+        .form-horizontal .checkbox-inline {
+          margin-top: 0;
+          margin-bottom: 0;
+          padding-top: 7px;
+        }
+        .form-horizontal .radio,
+        .form-horizontal .checkbox {
+          min-height: 27px;
+        }
+        .form-horizontal .form-group {
+          margin-left: -15px;
+          margin-right: -15px;
+        }
+        .form-horizontal .has-feedback .form-control-feedback {
+          right: 15px;
+        }
+        .btn {
+          display: inline-block;
+          margin-bottom: 0;
+          font-weight: normal;
+          text-align: center;
+          vertical-align: middle;
+          -ms-touch-action: manipulation;
+              touch-action: manipulation;
+          cursor: pointer;
+          background-image: none;
+          border: 1px solid transparent;
+          white-space: nowrap;
+          padding: 6px 12px;
+          font-size: 14px;
+          line-height: 1.42857143;
+          border-radius: 4px;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+          user-select: none;
+        }
+        .btn:focus,
+        .btn:active:focus,
+        .btn.active:focus,
+        .btn.focus,
+        .btn:active.focus,
+        .btn.active.focus {
+          outline: 5px auto -webkit-focus-ring-color;
+          outline-offset: -2px;
+        }
+        .btn:hover,
+        .btn:focus,
+        .btn.focus {
+          color: #333333;
+          text-decoration: none;
+        }
+        .btn:active,
+        .btn.active {
+          outline: 0;
+          background-image: none;
+          -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+          box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+        }
+        .btn.disabled,
+        .btn[disabled],
+        fieldset[disabled] .btn {
+          cursor: not-allowed;
+          opacity: 0.65;
+          filter: alpha(opacity=65);
+          -webkit-box-shadow: none;
+          box-shadow: none;
+        }
+        a.btn.disabled,
+        fieldset[disabled] a.btn {
+          pointer-events: none;
+        }
+        .btn-default {
+          color: #333333;
+          background-color: #ffffff;
+          border-color: #cccccc;
+        }
+        .btn-default:focus,
+        .btn-default.focus {
+          color: #333333;
+          background-color: #e6e6e6;
+          border-color: #8c8c8c;
+        }
+        .btn-default:hover {
+          color: #333333;
+          background-color: #e6e6e6;
+          border-color: #adadad;
+        }
+        .btn-default:active,
+        .btn-default.active,
+        .open > .dropdown-toggle.btn-default {
+          color: #333333;
+          background-color: #e6e6e6;
+          border-color: #adadad;
+        }
+        .btn-default:active:hover,
+        .btn-default.active:hover,
+        .open > .dropdown-toggle.btn-default:hover,
+        .btn-default:active:focus,
+        .btn-default.active:focus,
+        .open > .dropdown-toggle.btn-default:focus,
+        .btn-default:active.focus,
+        .btn-default.active.focus,
+        .open > .dropdown-toggle.btn-default.focus {
+          color: #333333;
+          background-color: #d4d4d4;
+          border-color: #8c8c8c;
+        }
+        .btn-default:active,
+        .btn-default.active,
+        .open > .dropdown-toggle.btn-default {
+          background-image: none;
+        }
+        .btn-default.disabled:hover,
+        .btn-default[disabled]:hover,
+        fieldset[disabled] .btn-default:hover,
+        .btn-default.disabled:focus,
+        .btn-default[disabled]:focus,
+        fieldset[disabled] .btn-default:focus,
+        .btn-default.disabled.focus,
+        .btn-default[disabled].focus,
+        fieldset[disabled] .btn-default.focus {
+          background-color: #ffffff;
+          border-color: #cccccc;
+        }
+        .btn-default .badge {
+          color: #ffffff;
+          background-color: #333333;
+        }
+        .btn-primary {
+          color: #ffffff;
+          background-color: #337ab7;
+          border-color: #2e6da4;
+        }
+        .btn-primary:focus,
+        .btn-primary.focus {
+          color: #ffffff;
+          background-color: #286090;
+          border-color: #122b40;
+        }
+        .btn-primary:hover {
+          color: #ffffff;
+          background-color: #286090;
+          border-color: #204d74;
+        }
+        .btn-primary:active,
+        .btn-primary.active,
+        .open > .dropdown-toggle.btn-primary {
+          color: #ffffff;
+          background-color: #286090;
+          border-color: #204d74;
+        }
+        .btn-primary:active:hover,
+        .btn-primary.active:hover,
+        .open > .dropdown-toggle.btn-primary:hover,
+        .btn-primary:active:focus,
+        .btn-primary.active:focus,
+        .open > .dropdown-toggle.btn-primary:focus,
+        .btn-primary:active.focus,
+        .btn-primary.active.focus,
+        .open > .dropdown-toggle.btn-primary.focus {
+          color: #ffffff;
+          background-color: #204d74;
+          border-color: #122b40;
+        }
+        .btn-primary:active,
+        .btn-primary.active,
+        .open > .dropdown-toggle.btn-primary {
+          background-image: none;
+        }
+        .btn-primary.disabled:hover,
+        .btn-primary[disabled]:hover,
+        fieldset[disabled] .btn-primary:hover,
+        .btn-primary.disabled:focus,
+        .btn-primary[disabled]:focus,
+        fieldset[disabled] .btn-primary:focus,
+        .btn-primary.disabled.focus,
+        .btn-primary[disabled].focus,
+        fieldset[disabled] .btn-primary.focus {
+          background-color: #337ab7;
+          border-color: #2e6da4;
+        }
+        .btn-primary .badge {
+          color: #337ab7;
+          background-color: #ffffff;
+        }
+        .btn-lg {
+          padding: 10px 16px;
+          font-size: 18px;
+          line-height: 1.3333333;
+          border-radius: 6px;
+        }
+        .btn-sm {
+          padding: 5px 10px;
+          font-size: 12px;
+          line-height: 1.5;
+          border-radius: 3px;
+        }
+        .btn-xs {
+          padding: 1px 5px;
+          font-size: 12px;
+          line-height: 1.5;
+          border-radius: 3px;
+        }
+        .btn-block {
+          display: block;
+          width: 100%;
+        }
+        .btn-block + .btn-block {
+          margin-top: 5px;
+        }
+        input[type="submit"].btn-block,
+        input[type="reset"].btn-block,
+        input[type="button"].btn-block {
+          width: 100%;
+        }
+        .nav {
+          margin-bottom: 0;
+          padding-left: 0;
+          list-style: none;
+        }
+        .nav > li {
+          position: relative;
+          display: block;
+        }
+        .nav > li > a {
+          position: relative;
+          display: block;
+          padding: 10px 15px;
+        }
+        .nav > li > a:hover,
+        .nav > li > a:focus {
+          text-decoration: none;
+          background-color: #eeeeee;
+        }
+        .nav > li.disabled > a {
+          color: #777777;
+        }
+        .nav > li.disabled > a:hover,
+        .nav > li.disabled > a:focus {
+          color: #777777;
+          text-decoration: none;
+          background-color: transparent;
+          cursor: not-allowed;
+        }
+        .nav .open > a,
+        .nav .open > a:hover,
+        .nav .open > a:focus {
+          background-color: #eeeeee;
+          border-color: #337ab7;
+        }
+        .nav .nav-divider {
+          height: 1px;
+          margin: 9px 0;
+          overflow: hidden;
+          background-color: #e5e5e5;
+        }
+        .nav > li > a > img {
+          max-width: none;
+        }
+        .nav-tabs {
+          border-bottom: 1px solid #dddddd;
+        }
+        .nav-tabs > li {
+          float: left;
+          margin-bottom: -1px;
+        }
+        .nav-tabs > li > a {
+          margin-right: 2px;
+          line-height: 1.42857143;
+          border: 1px solid transparent;
+          border-radius: 4px 4px 0 0;
+        }
+        .nav-tabs > li > a:hover {
+          border-color: #eeeeee #eeeeee #dddddd;
+        }
+        .nav-tabs > li.active > a,
+        .nav-tabs > li.active > a:hover,
+        .nav-tabs > li.active > a:focus {
+          color: #555555;
+          background-color: #ffffff;
+          border: 1px solid #dddddd;
+          border-bottom-color: transparent;
+          cursor: default;
+        }
+        .nav-tabs.nav-justified {
+          width: 100%;
+          border-bottom: 0;
+        }
+        .nav-tabs.nav-justified > li {
+          float: none;
+        }
+        .nav-tabs.nav-justified > li > a {
+          text-align: center;
+          margin-bottom: 5px;
+        }
+        .nav-tabs.nav-justified > .dropdown .dropdown-menu {
+          top: auto;
+          left: auto;
+        }
+        .tab-content > .tab-pane {
+          display: none;
+        }
+        .tab-content > .active {
+          display: block;
+        }
+        .nav-tabs .dropdown-menu {
+          margin-top: -1px;
+          border-top-right-radius: 0;
+          border-top-left-radius: 0;
+        }
+        .clearfix:before,
+        .clearfix:after,
+        .dl-horizontal dd:before,
+        .dl-horizontal dd:after,
+        .form-horizontal .form-group:before,
+        .form-horizontal .form-group:after,
+        .nav:before,
+        .nav:after {
+          content: " ";
+          display: table;
+        }
+        .clearfix:after,
+        .dl-horizontal dd:after,
+        .form-horizontal .form-group:after,
+        .nav:after {
+          clear: both;
+        }
+        .center-block {
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+        }
+        .pull-right {
+          float: right !important;
+        }
+        .pull-left {
+          float: left !important;
+        }
+        .hide {
+          display: none !important;
+        }
+        .show {
+          display: block !important;
+        }
+        .invisible {
+          visibility: hidden;
+        }
+        .text-hide {
+          font: 0/0 a;
+          color: transparent;
+          text-shadow: none;
+          background-color: transparent;
+          border: 0;
+        }
+        .hidden {
+          display: none !important;
+        }
+        .affix {
+          position: fixed;
+        }
+        
+        /* -- bootstrap over -- */
+        
+        html {overflow-y:scroll}
+        body {padding:15px; width:990px}
+        hr {margin:15px 0}
+        
+        .tab-content > .tab-pane {
+            padding:15px; border:1px solid #ddd; border-top:0;
+        }
+        
+        .btn > input[type="checkbox"] {margin:0}
+        
+        .form-group > .control-label {float:left; width:25%; padding:6px 30px 0 15px}
+        .form-group > .form-control-wrapper {float:left; width:70%; min-height:34px}
+        .form-control-wrapper-center {height:34px; display:inline-block; vertical-align:middle}
+        
+        .table-columns {width:100%}
+        .table-columns > tbody > tr > td {width:50%; padding-left:15px; vertical-align:top}
+        .table-columns > tbody > tr > td:first-child {padding:0 15px 0 0}
+        
+        .checkbox-list > li {margin-bottom:5px}
+        
+        #strange-plank-list, #strange-plank-list ul {list-style:none; padding-left:0; margin-bottom:0}
+        #strange-plank-list {padding-top:6px}
+        #strange-plank-list ul {margin-top:5px}
+        #strange-plank-list > li {width:25%}
+        
+    </style>
+</head>
+<body>
+    <h1 style="margin:0 0 10px">HWS XML Editor</h1>
+    
+    <p>
+        Please remember to <b>always keep a backup</b> of your save! Also, the browser might experience some slowdowns while processing the XML.
+    </p>
+    
+    <ul class="list-inline">
+        <li>
+            <label class="btn btn-default">
+                Select a converted XML file
+                <input type="file" id="xml-file-input" class="hide" accept="text/xml">
+            </label>
+        </li>
+        <li>
+            <b>OR</b>
+        </li>
+        <li>
+            <a href="https://github.com/altbdoor/hws2xml" class="btn btn-default">is your HWS not converted to XML yet?</a>
+        </li>
+    </ul>
+    
+    <hr>
+    
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="#tab-pane-general">General</a></li>
+        <li><a href="#tab-pane-modifiers">Modifiers</a></li>
+        <li><a href="#tab-pane-players">Players</a></li>
+    </ul>
+    
+    <form id="xml-editor-form" method="get" class="tab-content">
+        <div id="tab-pane-general" class="tab-pane active">
+            <div class="form-horizontal">
+                <div class="form-group">
+                    <label class="control-label">Game Version</label>
+                    <div class="form-control-wrapper">
+                        <input type="text" name="xml_game_version" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Play Time</label>
+                    <div class="form-control-wrapper">
+                        <input type="text" name="xml_play_time" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Level ID</label>
+                    <div class="form-control-wrapper">
+                        <input type="text" name="xml_level_id" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Difficulty</label>
+                    <div class="form-control-wrapper">
+                        <select name="xml_difficulty" class="form-control">
+                            <option value="0">Easy</option>
+                            <option value="1">Medium</option>
+                            <option value="2">Hard</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">&nbsp;</label>
+                    <div class="form-control-wrapper">
+                        <label class="btn btn-default">
+                            <input type="checkbox" name="xml_networked">
+                            Is game networked?
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Spawn Position X</label>
+                    <div class="form-control-wrapper">
+                        <input type="text" name="xml_spawn_pos_x" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Spawn Position Y</label>
+                    <div class="form-control-wrapper">
+                        <input type="text" name="xml_spawn_pos_y" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Strange Planks</label>
+                    <div class="form-control-wrapper">
+                        <ul id="strange-plank-list" class="clearfix">
+                            <li class="pull-left">
+                                <b>Act 1: Prison</b>
+                                <ul class="checkbox-list">
+                                    <li><label class="btn btn-default"><input type="checkbox" id="xml-strange-plank-1"> Floor 1</label></li>
+                                    <li><label class="btn btn-default"><input type="checkbox" id="xml-strange-plank-2"> Floor 2</label></li>
+                                    <li><label class="btn btn-default"><input type="checkbox" id="xml-strange-plank-3"> Floor 3</label></li>
+                                </ul>
+                            </li>
+                            <li class="pull-left">
+                                <b>Act 2: Armory</b>
+                                <ul class="checkbox-list">
+                                    <li><label class="btn btn-default"><input type="checkbox" id="xml-strange-plank-4"> Floor 4</label></li>
+                                    <li><label class="btn btn-default"><input type="checkbox" id="xml-strange-plank-5"> Floor 5</label></li>
+                                    <li><label class="btn btn-default"><input type="checkbox" id="xml-strange-plank-6"> Floor 6</label></li>
+                                </ul>
+                            </li>
+                            <li class="pull-left">
+                                <b>Act 3: Archives</b>
+                                <ul class="checkbox-list">
+                                    <li><label class="btn btn-default"><input type="checkbox" id="xml-strange-plank-7"> Floor 7</label></li>
+                                    <li><label class="btn btn-default"><input type="checkbox" id="xml-strange-plank-8"> Floor 8</label></li>
+                                    <li><label class="btn btn-default"><input type="checkbox" id="xml-strange-plank-9"> Floor 9</label></li>
+                                </ul>
+                            </li>
+                            <li class="pull-left">
+                                <b>Act 4: Chambers</b>
+                                <ul class="checkbox-list">
+                                    <li><label class="btn btn-default"><input type="checkbox" id="xml-strange-plank-10"> Floor 10</label></li>
+                                    <li><label class="btn btn-default"><input type="checkbox" id="xml-strange-plank-11"> Floor 11</label></li>
+                                    <li><label class="btn btn-default"><input type="checkbox" id="xml-strange-plank-12"> Floor 12</label></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <div id="tab-pane-modifiers" class="tab-pane">
+            <table class="table-columns">
+                <tr>
+                    <td>
+                        <h4 style="margin-top:10px">Challenges</h4>
+                        <ul class="list-unstyled checkbox-list">
+                            <li>
+                                <label class="btn btn-default">
+                                    <input type="checkbox" name="xml_modifiers_nolives">
+                                    No extra lives
+                                </label>
+                            </li>
+                            <li>
+                                <label class="btn btn-default">
+                                    <input type="checkbox" name="xml_modifiers_1hp">
+                                    1 hp
+                                </label>
+                            </li>
+                            <li>
+                                <label class="btn btn-default">
+                                    <input type="checkbox" name="xml_modifiers_sharehp">
+                                    Shared hp pool
+                                </label>
+                            </li>
+                            <li>
+                                <label class="btn btn-default">
+                                    <input type="checkbox" name="xml_modifiers_nohppup">
+                                    No hp pickups
+                                </label>
+                            </li>
+                            <li>
+                                <label class="btn btn-default">
+                                    <input type="checkbox" name="xml_modifiers_nomanaregen">
+                                    No mana regen
+                                </label>
+                            </li>
+                            <li>
+                                <label class="btn btn-default">
+                                    <input type="checkbox" name="xml_modifiers_revhpregen">
+                                    Reverse hp regen
+                                </label>
+                            </li>
+                        </ul>
+                    </td>
+                    <td>
+                        <h4 style="margin-top:10px">Crutches</h4>
+                        <ul class="list-unstyled checkbox-list">
+                            <li>
+                                <label class="btn btn-default">
+                                    <input type="checkbox" name="xml_modifiers_inflives">
+                                    Infinite lives
+                                </label>
+                            </li>
+                            <li>
+                                <label class="btn btn-default">
+                                    <input type="checkbox" name="xml_modifiers_hpregen">
+                                    Hp regen
+                                </label>
+                            </li>
+                            <li>
+                                <label class="btn btn-default">
+                                    <input type="checkbox" name="xml_modifiers_doubledmg">
+                                    Double damage
+                                </label>
+                            </li>
+                            <li>
+                                <label class="btn btn-default">
+                                    <input type="checkbox" name="xml_modifiers_doublelife">
+                                    Double lives
+                                </label>
+                            </li>
+                            <li>
+                                <label class="btn btn-default">
+                                    <input type="checkbox" name="xml_modifiers_quickmana">
+                                    5x mana regen
+                                </label>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div id="tab-pane-players" class="tab-pane">
+            <ul class="nav nav-tabs"></ul>
+            <div class="tab-content"></div>
+        </div>
+    </form>
+    <br>
+    
+    <button id="xml-editor-generate" type="button" class="btn btn-primary btn-lg btn-block">
+        Generate XML
+    </button>
+    
+    <a id="phantom-file-link" class="hide"></a>
+    
+    <script id="tab-pane-player-template" type="text/plain">
+        <div id="tab-pane-player-{{index}}" class="tab-pane {{activeClass}}">
+            <table class="table-columns">
+                <tr>
+                    <td>
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <label class="control-label">Name</label>
+                                <div class="form-control-wrapper">
+                                    <input type="text" class="form-control" name="xml_player_{{index}}_name">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Class</label>
+                                <div class="form-control-wrapper">
+                                    <select class="form-control" name="xml_player_{{index}}_class">
+                                        <option value="0">Paladin</option>
+                                        <option value="1">Wizard</option>
+                                        <option value="2">Ranger</option>
+                                        <option value="3">Warlock</option>
+                                        <option value="4">Thief</option>
+                                        <option value="5">Priest</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Lives</label>
+                                <div class="form-control-wrapper">
+                                    <input type="text" class="form-control" name="xml_player_{{index}}_lives">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Deaths</label>
+                                <div class="form-control-wrapper">
+                                    <input type="text" class="form-control" name="xml_player_{{index}}_deaths">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Health</label>
+                                <div class="form-control-wrapper">
+                                    <input type="text" class="form-control" name="xml_player_{{index}}_health">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Mana</label>
+                                <div class="form-control-wrapper">
+                                    <input type="text" class="form-control" name="xml_player_{{index}}_mana">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Money</label>
+                                <div class="form-control-wrapper">
+                                    <input type="text" class="form-control" name="xml_player_{{index}}_money">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Potion</label>
+                                <div class="form-control-wrapper">
+                                    <select class="form-control" name="xml_player_{{index}}_potion">
+                                        <option value="0">None</option>
+                                        <option value="1">Invincibility</option>
+                                        <option value="2">Rejuvenation</option>
+                                        <option value="3">Damage</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">&nbsp;</label>
+                                <div class="form-control-wrapper">
+                                    <label class="btn btn-default">
+                                        <input type="radio" name="xml_player_host" value="{{index}}">
+                                        Is player host?
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </script>
+    
+    <script>
+        (function (d, w) {
+            // i use for loops quite often
+            function foreach (list, callback) {
+                Array.prototype.forEach.call(list, callback);
+            }
+            
+            // i was lazy to type all the html
+            for (var i=1; i<=4; i++) {
+                var activeClass = (i == 1 ? 'active': '');
+                var tabs = d.querySelector('#tab-pane-players > .nav-tabs');
+                tabs.innerHTML += '<li class="' + activeClass + '"><a href="#tab-pane-player-' + i + '">Player ' + i + '</a></li>';
+                
+                var tabContent = d.querySelector('#tab-pane-players > .tab-content');
+                var tabContentHtml = d.getElementById('tab-pane-player-template').innerHTML;
+                tabContentHtml = tabContentHtml.replace(/\{\{index\}\}/g, i).replace('{{activeClass}}', activeClass);
+                tabContent.innerHTML += tabContentHtml;
+            }
+            
+            // quick nav tabs shim
+            foreach(d.querySelectorAll('.nav-tabs > li > a'), function (item) {
+                item.onclick = function (e) {
+                    e.preventDefault();
+                    
+                    var target = d.querySelector(item.getAttribute('href'));
+                    var itemParent = item.parentNode;
+                    
+                    foreach(target.parentNode.querySelectorAll(':scope > .tab-pane'), function (itemY) {
+                        itemY.classList.remove('active');
+                    });
+                    target.classList.add('active');
+                    
+                    foreach(itemParent.parentNode.querySelectorAll(':scope > li'), function (itemY) {
+                        itemY.classList.remove('active');
+                    });
+                    itemParent.classList.add('active');
+                };
+            });
+            
+            // global xml doc
+            var xml = null;
+            // xml = new DOMParser().parseFromString(localStorage.getItem('xmlcache'), 'text/xml');
+            
+            // event handler when they set a xml file
+            d.getElementById('xml-file-input').onchange = function () {
+                var file = this.files[0];
+                if (file) {
+                    var fr = new FileReader();
+                    fr.readAsText(file, 'UTF-8');
+                    fr.onload = function (e) {
+                        try {
+                            xml = new DOMParser().parseFromString(e.target.result, 'text/xml');
+                            // localStorage.setItem('xmlcache', e.target.result);
+                            if (xml.documentElement.nodeName == 'parsererror') {
+                                throw new Error();
+                            }
+                            
+                            var gameVersion = xml.querySelector('int[name="game-version"]');
+                            if (gameVersion == null) {
+                                throw new Error();
+                            }
+                        }
+                        catch (e) {
+                            xml = null;
+                            alert('Invalid XML file!');
+                        }
+                        
+                        if (xml !== null) {
+                            initXmlToForm();
+                        }
+                    };
+                }
+            };
+            
+            // simple get and set xml
+            function getXml (q) {
+                var val = null;
+                
+                try {
+                    val = xml.querySelector(q).childNodes[0].nodeValue;
+                }
+                catch (e) {
+                    val = null;
+                }
+                
+                return val;
+            }
+            
+            function setXml (q, val) {
+                xml.querySelector(q).childNodes[0].nodeValue = val;
+            }
+            
+            // prevent form from autosubmit and reset it
+            var editorForm = d.getElementById('xml-editor-form');
+            editorForm.onsubmit = function (e) {
+                e.preventDefault();
+            };
+            editorForm.onreset = function () {
+                // first player is always host
+                editorForm.querySelector('input[name="xml_player_host"]').checked = true;
+            };
+            editorForm.reset();
+            editorForm.onreset();
+            // initXmlToForm();
+            
+            // mapping the xmls to their respective input
+            function initXmlToForm () {
+                editorForm.reset();
+                editorForm.onreset();
+                
+                var xmlToFormMapping = {
+                    'int[name="game-version"]': 'input[name="xml_game_version"]',
+                    'int[name="play-time"]': 'input[name="xml_play_time"]',
+                    'string[name="level-id"]': 'input[name="xml_level_id"]',
+                    'int[name="difficulty"]': 'select[name="xml_difficulty"]',
+                    'bool[name="networked"]': 'input[name="xml_networked"]',
+                    'dictionary[name="spawn-pos"] > float[name="x"]': 'input[name="xml_spawn_pos_x"]',
+                    'dictionary[name="spawn-pos"] > float[name="y"]': 'input[name="xml_spawn_pos_y"]',
+                    
+                    'dictionary[name="modifiers"] > bool[name="nolives"]': 'input[name="xml_modifiers_nolives"]',
+                    'dictionary[name="modifiers"] > bool[name="1hp"]': 'input[name="xml_modifiers_1hp"]',
+                    'dictionary[name="modifiers"] > bool[name="sharehp"]': 'input[name="xml_modifiers_sharehp"]',
+                    'dictionary[name="modifiers"] > bool[name="nohppup"]': 'input[name="xml_modifiers_nohppup"]',
+                    'dictionary[name="modifiers"] > bool[name="nomanaregen"]': 'input[name="xml_modifiers_nomanaregen"]',
+                    'dictionary[name="modifiers"] > bool[name="revhpregen"]': 'input[name="xml_modifiers_revhpregen"]',
+                    'dictionary[name="modifiers"] > bool[name="inflives"]': 'input[name="xml_modifiers_inflives"]',
+                    'dictionary[name="modifiers"] > bool[name="hpregen"]': 'input[name="xml_modifiers_hpregen"]',
+                    'dictionary[name="modifiers"] > bool[name="doubledmg"]': 'input[name="xml_modifiers_doubledmg"]',
+                    'dictionary[name="modifiers"] > bool[name="doublelife"]': 'input[name="xml_modifiers_doublelife"]',
+                    'dictionary[name="modifiers"] > bool[name="quickmana"]': 'input[name="xml_modifiers_quickmana"]',
+                };
+                
+                // player maps
+                for (var i=1; i<=4; i++) {
+                    var parentQuery = 'array[name="players"] > dictionary:nth-child(' + i + ') > ';
+                    xmlToFormMapping[parentQuery + 'string[name="name"]'] = 'input[name="xml_player_' + i + '_name"]';
+                    xmlToFormMapping[parentQuery + 'int[name="class"]'] = 'select[name="xml_player_' + i + '_class"]';
+                    xmlToFormMapping[parentQuery + 'int[name="health"]'] = 'input[name="xml_player_' + i + '_health"]';
+                    xmlToFormMapping[parentQuery + 'int[name="mana"]'] = 'input[name="xml_player_' + i + '_mana"]';
+                    xmlToFormMapping[parentQuery + 'int[name="lives"]'] = 'input[name="xml_player_' + i + '_lives"]';
+                    xmlToFormMapping[parentQuery + 'int[name="deaths"]'] = 'input[name="xml_player_' + i + '_deaths"]';
+                    xmlToFormMapping[parentQuery + 'int[name="money"]'] = 'input[name="xml_player_' + i + '_money"]';
+                    xmlToFormMapping[parentQuery + 'int[name="potion"]'] = 'select[name="xml_player_' + i + '_potion"]';
+                    
+                    
+                }
+                
+                for (var key in xmlToFormMapping) {
+                    var xmlValue = getXml(key);
+                    var formInput = editorForm.querySelector(xmlToFormMapping[key]);
+                    
+                    if (xmlValue !== null && formInput !== null) {
+                        var formInputNode = formInput.nodeName.toLowerCase();
+                        var formInputType = formInput.getAttribute('type');
+                        
+                        formInput.setAttribute('data-query', key);
+                        
+                        if (formInputNode == 'input' && formInputType == 'checkbox') {
+                            formInput.checked = (xmlValue.toLowerCase() == 'true');
+                        }
+                        else if (formInputNode == 'select') {
+                            formInput.selectedIndex = null;
+                            formInput.querySelector('[value="' + xmlValue + '"]').selected = true;
+                        }
+                        else {
+                            formInput.value = xmlValue;
+                        }
+                    }
+                    
+                }
+                
+                // hide empty players
+                for (var i=2; i<=4; i++) {
+                    if (editorForm.querySelector('input[name="xml_player_' + i + '_name"]').value == '') {
+                        d.querySelector('#tab-pane-players > .nav-tabs > li:nth-child(' + i + ')').classList.add('hide');
+                    }
+                }
+                
+                // count dem planks
+                for (var i=1; i<=12; i++) {
+                    var plankValue = getXml('dictionary[name="flags"] > bool[name="l' + i + '_plank"]');
+                    if (plankValue !== null && plankValue.toLowerCase() == 'true') {
+                        d.getElementById('xml-strange-plank-' + i).checked = true;
+                    }
+                }
+                
+            }
+            
+            // generate the xml
+            d.getElementById('xml-editor-generate').onclick = function () {
+                if (xml !== null) {
+                    var formData = editorForm.querySelectorAll('[name]');
+                    for (var i=0; i<formData.length; i++) {
+                        var input = formData[i];
+                        var query = input.getAttribute('data-query');
+                        var val = input.value;
+                        
+                        if (input.getAttribute('type') == 'checkbox') {
+                            val = (input.checked ? 'True' : 'False');
+                        }
+                        
+                        if (query !== null) {
+                            setXml(query, val);
+                        }
+                    }
+                    
+                    // strange plank, strange logics
+                    for (var i=1; i<=12; i++) {
+                        var plankInput = d.getElementById('xml-strange-plank-' + i);
+                        var plankXmlParent = xml.querySelector('dictionary[name="flags"]');
+                        var plankXml = plankXmlParent.querySelector('bool[name="l' + i + '_plank"]');
+                        
+                        if (plankInput.checked) {
+                            if (plankXml === null) {
+                                var plankXml = xml.createElement('bool');
+                                plankXml.setAttribute('name', 'l' + i + '_plank');
+                                plankXml.appendChild(xml.createTextNode('True'));
+                                
+                                plankXmlParent.appendChild(plankXml);
+                            }
+                            
+                            plankXml.childNodes[0].nodeValue = 'True';
+                        }
+                        else {
+                            if (plankXml !== null) {
+                                plankXmlParent.removeChild(plankXml);
+                            }
+                        }
+                        
+                    }
+                    
+                    // gotta make a copy, since we are moving nodes
+                    var reXml = xml.implementation.createDocument(null, null, null);
+                    var reNode = reXml.importNode(xml.documentElement, true);
+                    reXml.appendChild(reNode);
+                    
+                    var hostVal = editorForm.querySelector('[name="xml_player_host"]:checked').value;
+                    if (hostVal > 1) {
+                        var xmlNewHost = reXml.querySelector('array[name="players"] > dictionary:nth-child(' + hostVal + ')');
+                        var xmlNewHostParent = xmlNewHost.parentNode;
+                        var xmlNewHostCopy = xmlNewHost.cloneNode(true);
+                        
+                        xmlNewHostParent.removeChild(xmlNewHost);
+                        xmlNewHostParent.insertBefore(xmlNewHostCopy, xmlNewHostParent.firstChild);
+                    }
+                    
+                    // download time
+                    var xmlString = new XMLSerializer().serializeToString(reXml);
+                    var blob = new Blob([xmlString], {type: 'text/xml'});
+                    var blobUrl = w.URL.createObjectURL(blob);
+                    
+                    delete xmlString;
+                    delete reXml;
+                    delete blob;
+                    
+                    var link = d.getElementById('phantom-file-link');
+                    link.setAttribute('href', blobUrl);
+                    link.setAttribute('download', 'edited_save.xml');
+                    link.click();
+                }
+                else {
+                    alert('XML file not loaded!');
+                }
+            };
+            
+        })(document, window);
+    </script>
+</body>
+</html>
