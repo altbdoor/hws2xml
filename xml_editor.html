@@ -1935,22 +1935,23 @@
                     for (var i=1; i<=4; i++) {
                         var upgradeXmlParent = xml.querySelector('array[name="players"] > dictionary:nth-child(' + i + ') > array[name="upgrades"]');
                         
-                        foreach(upgradeTypes, function (upgrade) {
-                            if (upgrade == 'combo') {
-                                var upgradeXml = xml.createElement('string');
-                                upgradeXml.appendChild(xml.createTextNode('combo'));
-                                upgradeXmlParent.appendChild(upgradeXml);
-                            }
-                            else {
-                                var upgradeLimit = d.getElementById('xml-player-' + i + '-' + upgrade).value;
-                                for (var j=1; j<=upgradeLimit; j++) {
+                        if (upgradeXmlParent !== null) {
+                            foreach(upgradeTypes, function (upgrade) {
+                                if (upgrade == 'combo') {
                                     var upgradeXml = xml.createElement('string');
-                                    upgradeXml.appendChild(xml.createTextNode(upgrade + '-' + j));
+                                    upgradeXml.appendChild(xml.createTextNode('combo'));
                                     upgradeXmlParent.appendChild(upgradeXml);
                                 }
-                            }
-                        });
-                        
+                                else {
+                                    var upgradeLimit = d.getElementById('xml-player-' + i + '-' + upgrade).value;
+                                    for (var j=1; j<=upgradeLimit; j++) {
+                                        var upgradeXml = xml.createElement('string');
+                                        upgradeXml.appendChild(xml.createTextNode(upgrade + '-' + j));
+                                        upgradeXmlParent.appendChild(upgradeXml);
+                                    }
+                                }
+                            });
+                        }
                     }
                     
                     var copyXml = null;
