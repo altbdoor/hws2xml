@@ -1169,8 +1169,43 @@
     <h1 style="margin:0 0 10px">HWS XML Editor</h1>
     
     <p>
-        Please remember to <b>always keep a backup</b> of your save! Also, the browser might experience some slowdowns while processing the XML.
+        Please remember to <b>always keep a backup</b> of your save!
+        Also, the browser might experience some slowdowns while processing the XML.
+        <a href="javascript:void(0)" onclick="document.getElementById('more-info').classList.toggle('hide');">And some more info...</a>
     </p>
+    
+    <div id="more-info" class="hide">
+        <p>
+            The <a href="http://store.steampowered.com/app/239070">Hammerwatch</a>
+            team did a pretty good job with sanity checking actually. While you
+            can observe that there are parameters for health and mana, you cannot
+            go into crazy values like several thousands or millions. They would
+            just fall back to a maximum number, which I did not try to determine,
+            as it would require quite a number of trial and error.
+        </p>
+        <p>
+            But hey, you could get all (or some) of the Strange Planks now, for
+            the two achievements over on Steam, if that's your cup of tea.
+        </p>
+        <p>
+            While working on this and getting comfortable with the XML, I noticed
+            that there are a couple of stuff that you should not edit. One,
+            player classes. Because, in addition to the Combo and Vitality boosts,
+            the Offense and Defense boosts are unique for each class (which also
+            explains why I am too lazy to work on that).
+        </p>
+        <p>
+            Adding a new player should also be a nightmare. Each player's data
+            structure is not simple, with arrays of magical integers and all.
+        </p>
+        <p>
+            Lastly, a huge thanks to <a href="https://github.com/joedf/HWSEdit">HWSEdit</a>,
+            <a href="http://hammerwatch.com/forum/index.php?topic=2197.msg5313#msg5313">Myran</a>
+            and <a href="http://hammerwatch.com/forum/index.php?topic=2197.msg5318#msg5318">joedf</a>.
+            Without them, I would not have ventured into doing this. And of course,
+            the Hammerwatch team, thanks for this amazing game.
+        </p>
+    </div>
     
     <ul class="list-inline">
         <li>
@@ -1293,7 +1328,7 @@
             <table class="table-columns">
                 <tr>
                     <td>
-                        <h4 style="margin-top:10px">Challenges</h4>
+                        <p style="margin-top:6px"><b>Challenges</b></p>
                         <ul class="list-unstyled checkbox-list">
                             <li>
                                 <label class="btn btn-default">
@@ -1334,7 +1369,7 @@
                         </ul>
                     </td>
                     <td>
-                        <h4 style="margin-top:10px">Crutches</h4>
+                        <p style="margin-top:6px"><b>Crutches</b></p>
                         <ul class="list-unstyled checkbox-list">
                             <li>
                                 <label class="btn btn-default">
@@ -1389,6 +1424,8 @@
             <table class="table-columns">
                 <tr>
                     <td>
+                        <p style="margin-top:6px"><b>General Player Details</b></p>
+                        
                         <div class="form-horizontal">
                             <div class="form-group">
                                 <label class="control-label">Name</label>
@@ -1459,10 +1496,106 @@
                                     </label>
                                 </div>
                             </div>
+                            
+                            <p style="margin-top:6px"><b>Upgrade Powerups</b></p>
+                            <div class="form-group">
+                                <label class="control-label">Health</label>
+                                <div class="form-control-wrapper">
+                                    <input type="text" class="form-control" name="xml_player_{{index}}_upgradehealth">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Mana</label>
+                                <div class="form-control-wrapper">
+                                    <input type="text" class="form-control" name="xml_player_{{index}}_upgrademana">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Damage</label>
+                                <div class="form-control-wrapper">
+                                    <input type="text" class="form-control" name="xml_player_{{index}}_upgradedamage">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Defense</label>
+                                <div class="form-control-wrapper">
+                                    <input type="text" class="form-control" name="xml_player_{{index}}_upgradedefense">
+                                </div>
+                            </div>
                         </div>
                     </td>
                     <td>
-                        &nbsp;
+                        <p style="margin-top:6px"><b>Combo</b></p>
+                        <ul class="checkbox-list list-unstyled">
+                            <li>
+                                <label class="btn btn-default">
+                                    <input type="checkbox" id="xml-player-{{index}}-has-combo" class="xml-player-has-combo" data-index="{{index}}">
+                                    Player has combo?
+                                </label>
+                            </li>
+                            <li>
+                                <select id="xml-player-{{index}}-combo-time" class="form-control">
+                                    <option value="0">-- No Combo Timer --</option>
+                                    <option value="1">Combo Timer 1 (0.75 s to 1.00 s)</option>
+                                    <option value="2">Combo Timer 2 (1.00 s to 1.25 s)</option>
+                                    <option value="3">Combo Timer 3 (1.25 s to 1.50 s)</option>
+                                    <option value="4">Combo Timer 4 (1.50 s to 1.75 s)</option>
+                                    <option value="5">Combo Timer 5 (1.75 s to 2.00 s)</option>
+                                </select>
+                            </li>
+                            <li>
+                                <select id="xml-player-{{index}}-combo-nova" class="form-control">
+                                    <option value="0">-- No Combo Nova --</option>
+                                    <option value="1">Combo Nova 1 (6 parts, 12 dmg)</option>
+                                    <option value="2">Combo Nova 2 (10 parts, 17 dmg)</option>
+                                    <option value="3">Combo Nova 3 (14 parts, 26 dmg)</option>
+                                    <option value="4">Combo Nova 4 (18 parts, 34 dmg)</option>
+                                    <option value="5">Combo Nova 5 (22 parts, 42 dmg)</option>
+                                </select>
+                            </li>
+                            <li>
+                                <select id="xml-player-{{index}}-combo-heal" class="form-control">
+                                    <option value="0">-- No Combo Healing --</option>
+                                    <option value="1">Combo Healing 1 (2 hp/s)</option>
+                                    <option value="2">Combo Healing 2 (4 hp/s)</option>
+                                    <option value="3">Combo Healing 3 (6 hp/s)</option>
+                                    <option value="4">Combo Healing 4 (8 hp/s)</option>
+                                    <option value="5">Combo Healing 5 (10 hp/s)</option>
+                                </select>
+                            </li>
+                        </ul>
+                        
+                        <p><b>Vitality</b></p>
+                        <ul class="checkbox-list list-unstyled">
+                            <li>
+                                <select id="xml-player-{{index}}-health" class="form-control">
+                                    <option value="0">-- No Health Pool --</option>
+                                    <option value="1">Health Pool 1</option>
+                                    <option value="2">Health Pool 2</option>
+                                    <option value="3">Health Pool 3</option>
+                                    <option value="4">Health Pool 4</option>
+                                    <option value="5">Health Pool 5</option>
+                                </select>
+                            </li>
+                            <li>
+                                <select id="xml-player-{{index}}-mana" class="form-control">
+                                    <option value="0">-- No Mana Pool --</option>
+                                    <option value="1">Mana Pool 1</option>
+                                    <option value="2">Mana Pool 2</option>
+                                    <option value="3">Mana Pool 3</option>
+                                    <option value="4">Mana Pool 4</option>
+                                    <option value="5">Mana Pool 5</option>
+                                </select>
+                            </li>
+                            <li>
+                                <select id="xml-player-{{index}}-speed" class="form-control">
+                                    <option value="0">-- No Move Speed --</option>
+                                    <option value="1">Move Speed 1</option>
+                                    <option value="2">Move Speed 2</option>
+                                    <option value="3">Move Speed 3</option>
+                                </select>
+                            </li>
+                        </ul>
                     </td>
                 </tr>
             </table>
@@ -1505,6 +1638,37 @@
                         itemY.classList.remove('active');
                     });
                     itemParent.classList.add('active');
+                };
+            });
+            
+            // sanity check
+            foreach(d.querySelectorAll('.xml-player-has-combo'), function (item) {
+                item.onchange = function () {
+                    var index = item.getAttribute('data-index');
+                    var comboItems = [
+                        '#xml-player-' + index + '-combo-time',
+                        '#xml-player-' + index + '-combo-nova',
+                        '#xml-player-' + index + '-combo-heal',
+                    ];
+                    
+                    comboItems = comboItems.join(', ');
+                    comboItems  = d.querySelectorAll(comboItems);
+                    
+                    var playerTime = d.getElementById('xml-player-' + index + '-combo-time');
+                    var playerNova = d.getElementById('xml-player-' + index + '-combo-nova');
+                    var playerHeal = d.getElementById('xml-player-' + index + '-combo-heal');
+                    
+                    if (item.checked) {
+                        foreach(comboItems, function (item) {
+                            item.removeAttribute('disabled');
+                        });
+                    }
+                    else {
+                        foreach(comboItems, function (item) {
+                            item.setAttribute('disabled', 'disabled');
+                            item.selectedIndex = null;
+                        });
+                    }
                 };
             });
             
@@ -1568,7 +1732,20 @@
             };
             editorForm.onreset = function () {
                 // first player is always host
-                editorForm.querySelector('input[name="xml_player_host"]').checked = true;
+                d.querySelector('input[name="xml_player_host"]').checked = true;
+                
+                var tabPanePlayers = d.getElementById('tab-pane-players');
+                
+                foreach(tabPanePlayers.querySelectorAll('.nav-tabs > li'), function (item) {
+                    item.classList.remove('active');
+                    item.classList.remove('hide');
+                });
+                tabPanePlayers.querySelector('.nav-tabs > li:first-child').classList.add('active');
+                
+                foreach(tabPanePlayers.querySelectorAll('.nav-content > .tab-pane'), function (item) {
+                    item.classList.remove('active');
+                });
+                tabPanePlayers.querySelector('.tab-content > .tab-pane:first-child').classList.add('active');
             };
             editorForm.reset();
             editorForm.onreset();
@@ -1613,12 +1790,17 @@
                     xmlToFormMapping[parentQuery + 'int[name="money"]'] = 'input[name="xml_player_' + i + '_money"]';
                     xmlToFormMapping[parentQuery + 'int[name="potion"]'] = 'select[name="xml_player_' + i + '_potion"]';
                     
+                    var powerups = parentQuery + 'dictionary[name="upgrade-powerups"] > ';
+                    xmlToFormMapping[powerups + 'int[name="max-health"]'] = 'input[name="xml_player_' + i + '_upgradehealth"]';
+                    xmlToFormMapping[powerups + 'int[name="max-mana"]'] = 'input[name="xml_player_' + i + '_upgrademana"]';
+                    xmlToFormMapping[powerups + 'float[name="dmg-mul"]'] = 'input[name="xml_player_' + i + '_upgradedamage"]';
+                    xmlToFormMapping[powerups + 'int[name="dmg-reduction"]'] = 'input[name="xml_player_' + i + '_upgradedefense"]';
                     
                 }
                 
                 for (var key in xmlToFormMapping) {
                     var xmlValue = getXml(key);
-                    var formInput = editorForm.querySelector(xmlToFormMapping[key]);
+                    var formInput = d.querySelector(xmlToFormMapping[key]);
                     
                     if (xmlValue !== null && formInput !== null) {
                         var formInputNode = formInput.nodeName.toLowerCase();
@@ -1640,11 +1822,49 @@
                     
                 }
                 
-                // hide empty players
-                for (var i=2; i<=4; i++) {
-                    if (editorForm.querySelector('input[name="xml_player_' + i + '_name"]').value == '') {
-                        d.querySelector('#tab-pane-players > .nav-tabs > li:nth-child(' + i + ')').classList.add('hide');
+                var upgradeTypes = ['combo-time', 'combo-nova', 'combo-heal', 'combo', 'health', 'mana', 'speed'];
+                var upgradeTypesRgx = new RegExp('^(' + upgradeTypes.join('|') + ')');
+                
+                for (var i=1; i<=4; i++) {
+                    // hide empty players
+                    var playerName = d.querySelector('input[name="xml_player_' + i + '_name"]').value;
+                    var playerTabLink = d.querySelector('#tab-pane-players > .nav-tabs > li:nth-child(' + i + ')');
+                    
+                    if (playerName == '') {
+                        playerTabLink.classList.add('hide');
                     }
+                    else {
+                        playerTabLink.querySelector('a').innerHTML = playerName;
+                        
+                        var upgradesMap = {};
+                        var parentQuery = 'array[name="players"] > dictionary:nth-child(' + i + ') > ';
+                        var xmlUpgrades = xml.querySelectorAll(parentQuery + 'array[name="upgrades"] > string');
+                        
+                        foreach(xmlUpgrades, function (item) {
+                            var xmlVal = item.childNodes[0].nodeValue;
+                            var upgradeTypeRgxMatch = xmlVal.match(upgradeTypesRgx);
+                            
+                            if (upgradeTypeRgxMatch && upgradeTypeRgxMatch[0]) {
+                                var match = upgradeTypeRgxMatch[0];
+                                
+                                if (match == 'combo') {
+                                    d.getElementById('xml-player-' + i +'-has-combo').checked = true;
+                                }
+                                else {
+                                    if (!(match in upgradesMap)) {
+                                        upgradesMap[match] = 0;
+                                    }
+                                    
+                                    upgradesMap[match]++;
+                                    var selectUpgrade = d.getElementById('xml-player-' + i +'-' + match);
+                                    selectUpgrade.selectedIndex = upgradesMap[match];
+                                }
+                                
+                            }
+                        });
+                        
+                    }
+                    
                 }
                 
                 // count dem planks
@@ -1660,20 +1880,19 @@
             // generate the xml
             d.getElementById('xml-editor-generate').onclick = function () {
                 if (xml !== null) {
-                    var formData = editorForm.querySelectorAll('[name]');
-                    for (var i=0; i<formData.length; i++) {
-                        var input = formData[i];
+                    foreach(d.querySelectorAll('[name]'), function (input) {
                         var query = input.getAttribute('data-query');
-                        var val = input.value;
-                        
-                        if (input.getAttribute('type') == 'checkbox') {
-                            val = (input.checked ? 'True' : 'False');
-                        }
                         
                         if (query !== null) {
+                            var val = input.value;
+                            
+                            if (input.getAttribute('type') == 'checkbox') {
+                                val = (input.checked ? 'True' : 'False');
+                            }
+                            
                             setXml(query, val);
                         }
-                    }
+                    });
                     
                     // strange plank, strange logics
                     for (var i=1; i<=12; i++) {
@@ -1700,23 +1919,64 @@
                         
                     }
                     
-                    // gotta make a copy, since we are moving nodes
-                    var reXml = xml.implementation.createDocument(null, null, null);
-                    var reNode = reXml.importNode(xml.documentElement, true);
-                    reXml.appendChild(reNode);
+                    // purge the upgrades first
+                    var upgradeTypes = ['combo-time', 'combo-nova', 'combo-heal', 'combo', 'health', 'mana', 'speed'];
+                    var upgradeTypesRgx = new RegExp('^(' + upgradeTypes.join('|') + ')');
+                    var xmlUpgrades = xml.querySelectorAll('array[name="upgrades"] > string');
                     
-                    var hostVal = editorForm.querySelector('[name="xml_player_host"]:checked').value;
+                    foreach(xmlUpgrades, function (item) {
+                        var xmlVal = item.childNodes[0].nodeValue;
+                        if (upgradeTypesRgx.test(xmlVal)) {
+                            item.parentNode.removeChild(item);
+                        }
+                    });
+                    
+                    // then we slowly add back
+                    for (var i=1; i<=4; i++) {
+                        var upgradeXmlParent = xml.querySelector('array[name="players"] > dictionary:nth-child(' + i + ') > array[name="upgrades"]');
+                        
+                        foreach(upgradeTypes, function (upgrade) {
+                            if (upgrade == 'combo') {
+                                var upgradeXml = xml.createElement('string');
+                                upgradeXml.appendChild(xml.createTextNode('combo'));
+                                upgradeXmlParent.appendChild(upgradeXml);
+                            }
+                            else {
+                                var upgradeLimit = d.getElementById('xml-player-' + i + '-' + upgrade).value;
+                                for (var j=1; j<=upgradeLimit; j++) {
+                                    var upgradeXml = xml.createElement('string');
+                                    upgradeXml.appendChild(xml.createTextNode(upgrade + '-' + j));
+                                    upgradeXmlParent.appendChild(upgradeXml);
+                                }
+                            }
+                        });
+                        
+                    }
+                    
+                    var copyXml = null;
+                    var xmlString = '';
+                    var hostVal = d.querySelector('[name="xml_player_host"]:checked').value;
+                    
                     if (hostVal > 1) {
-                        var xmlNewHost = reXml.querySelector('array[name="players"] > dictionary:nth-child(' + hostVal + ')');
+                        // gotta make a copy, since we are moving nodes
+                        var copyXml = xml.implementation.createDocument(null, null, null);
+                        var copyNode = copyXml.importNode(xml.documentElement, true);
+                        copyXml.appendChild(copyNode);
+                        
+                        var xmlNewHost = copyXml.querySelector('array[name="players"] > dictionary:nth-child(' + hostVal + ')');
                         var xmlNewHostParent = xmlNewHost.parentNode;
                         var xmlNewHostCopy = xmlNewHost.cloneNode(true);
                         
                         xmlNewHostParent.removeChild(xmlNewHost);
                         xmlNewHostParent.insertBefore(xmlNewHostCopy, xmlNewHostParent.firstChild);
+                        
+                        xmlString = new XMLSerializer().serializeToString(copyXml);
+                    }
+                    else {
+                        xmlString = new XMLSerializer().serializeToString(xml);
                     }
                     
                     // download time
-                    var xmlString = new XMLSerializer().serializeToString(reXml);
                     var blob = new Blob([xmlString], {type: 'text/xml'});
                     var blobUrl = w.URL.createObjectURL(blob);
                     
